@@ -1,4 +1,4 @@
-<!-- index.html – AskToken Official Landing Page (v1.1) -->
+<!-- index.html – AskToken Official Landing Page (v1.2) -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,54 +7,75 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>AskToken — Official Token Page</title>
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
 
   <!-- Styles -->
   <style>
-    :root {
-      --bg: #0f172a;
-      --bg-card: #1e293b;
-      --text: #e2e8f0;
-      --muted: #94a3b8;
-      --accent: #4f46e5;
-      --accent-light: #6366f1;
+    :root{
+      --bg:#0f172a;--bg-card:#1e293b;--text:#e2e8f0;--muted:#94a3b8;
+      --accent:#4f46e5;--accent-light:#6366f1;--gradient-pink:#ec4899;
     }
     *{margin:0;padding:0;box-sizing:border-box;font-family:"Inter",sans-serif}
     html{scroll-behavior:smooth}
-    body{background:var(--bg);color:var(--text);line-height:1.65}
+    body{background:var(--bg);color:var(--text);line-height:1.65;position:relative;overflow-x:hidden}
+
+    /* -------- animated background -------- */
+    body::before{content:"";position:fixed;inset:0;z-index:-1;
+      background:
+        radial-gradient(circle at 25% 25%,rgba(79,70,229,.17),transparent 40%),
+        radial-gradient(circle at 75% 75%,rgba(236,72,153,.14),transparent 40%);
+      background-size:200% 200%;
+      animation:bgMove 12s linear infinite}
+    @keyframes bgMove{
+      0%{background-position:0 0,100% 100%}
+      50%{background-position:100% 0,0 100%}
+      100%{background-position:0 0,100% 100%}
+    }
 
     a{color:var(--accent);text-decoration:none}
+
+    /* -------- HERO -------- */
     header{text-align:center;padding:4rem 1rem 3rem}
     header img{width:128px;height:128px;margin-bottom:1.2rem;border-radius:50%}
     header h1{font-size:2.75rem;font-weight:800;margin-bottom:.6rem}
     header p{font-size:1.15rem;color:var(--muted);max-width:540px;margin:0 auto 1.8rem}
-
-    .cta-btn{display:inline-block;padding:.9rem 1.8rem;background:var(--accent);color:#fff;font-weight:600;border-radius:8px;transition:.15s}
+    .cta-btn{display:inline-block;padding:.9rem 1.8rem;background:var(--accent);
+      color:#fff;font-weight:600;border-radius:8px;transition:.15s}
     .cta-btn:hover{opacity:.9;transform:translateY(-2px)}
 
-    /* === CALLOUT (= teaser « Coming Soon ») === */
-    .callout{background:linear-gradient(135deg,rgba(79,70,229,.15),rgba(79,70,229,.05));
-             border:1px solid var(--accent-light);border-radius:10px;
-             padding:2rem 1.5rem;margin:0 auto 3rem;max-width:860px;
-             text-align:center;box-shadow:0 6px 18px rgba(0,0,0,.35)}
+    /* -------- loader -------- */
+    #loader{position:fixed;inset:0;background:var(--bg);display:flex;
+      align-items:center;justify-content:center;z-index:9999;transition:opacity .6s ease}
+    #loader.fade{opacity:0;pointer-events:none}
+    .bar-wrap{width:260px;height:6px;background:var(--bg-card);border-radius:3px;
+      overflow:hidden;box-shadow:0 0 8px rgba(0,0,0,.4) inset}
+    .bar{height:100%;width:100%;
+      background:linear-gradient(90deg,var(--accent),var(--gradient-pink));
+      transform-origin:left;transform:scaleX(0);transition:transform .2s ease}
+
+    /* -------- callout -------- */
+    .callout{background:linear-gradient(135deg,rgba(79,70,229,.18),rgba(79,70,229,.05));
+      border:1px solid var(--accent-light);border-radius:10px;
+      padding:2rem 1.5rem;margin:0 auto 3rem;max-width:860px;text-align:center;
+      box-shadow:0 6px 18px rgba(0,0,0,.35)}
     .callout h2{font-size:1.8rem;font-weight:700;margin-bottom:.6rem}
     .callout p{font-size:1.05rem;max-width:640px;margin:0 auto 1.5rem}
     .social-btn{display:inline-block;margin:.25rem .4rem;padding:.55rem 1.2rem;
-                border:2px solid var(--accent-light);color:var(--accent-light);
-                border-radius:6px;font-weight:600;transition:.15s}
+      border:2px solid var(--accent-light);color:var(--accent-light);
+      border-radius:6px;font-weight:600;transition:.15s}
     .social-btn:hover{background:var(--accent-light);color:#fff}
 
-    /* === Sections === */
+    /* -------- sections -------- */
     .section{padding:3.5rem 1rem;max-width:960px;margin:0 auto}
     .section h2{font-size:2rem;text-align:center;margin-bottom:2rem;position:relative}
     .section h2::after{content:"";position:absolute;left:50%;transform:translateX(-50%);
-                       bottom:-8px;width:60px;height:3px;background:var(--accent);border-radius:6px}
+      bottom:-8px;width:60px;height:3px;background:var(--accent);border-radius:6px}
 
     table{width:100%;border-collapse:collapse;background:var(--bg-card);
-          border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.25)}
+      border-radius:8px;overflow:hidden;box-shadow:0 4px 12px rgba(0,0,0,.25)}
     th,td{padding:1rem;text-align:center;border-bottom:1px solid #334155}
     th{background:#1e293b;font-weight:600}
     tr:last-child td{border-bottom:none}
@@ -64,6 +85,7 @@
 
     footer{text-align:center;padding:2rem 1rem;font-size:.9rem;color:var(--muted)}
 
+    /* -------- responsive -------- */
     @media (max-width:640px){
       header h1{font-size:2.2rem}
       header p{font-size:1rem}
@@ -73,23 +95,28 @@
 </head>
 <body>
 
-  <!-- ========== HERO ========== -->
+  <!-- Loader -->
+  <div id="loader">
+    <div class="bar-wrap"><div class="bar"></div></div>
+  </div>
+
+  <!-- HERO -->
   <header>
     <img src="https://raw.githubusercontent.com/ask-chain/askchain-token/main/logo.png" alt="AskToken logo" />
     <h1>AskToken (ASK)</h1>
-    <p>The community-powered Q&amp;A token rewarding verified crypto knowledge.</p>
+    <p>The community-powered Q&A token rewarding verified crypto knowledge.</p>
     <a class="cta-btn" href="https://app.uniswap.org/explore/pools/base/0xA48026ff82AC7C773952359A9f9dE04C7C5a6549" target="_blank" rel="noopener">Buy $ASK on Uniswap</a>
   </header>
 
-  <!-- ========== COMING SOON CALLOUT ========== -->
+  <!-- CALLOUT -->
   <section class="callout" id="join">
     <h2>🚀 AskChain dApp — Coming Soon!</h2>
-    <p>We’re building the first on-chain Q&amp;A platform where <strong>your knowledge earns crypto</strong>. Help us shape it : spread the word, share feedback and join our early-tester squad.</p>
-    <a class="social-btn" href="https://t.me/askchain_announcements" target="_blank">Join Telegram</a>
-    <a class="social-btn" href="https://twitter.com/askchain_coin" target="_blank">Follow Twitter</a>
+    <p>We’re building the first on-chain Q&amp;A platform where <strong>your knowledge earns crypto</strong>. Help us shape it : spread the word, share feedback, and join our early-tester squad.</p>
+    <a class="social-btn" href="https://t.me/askchain_announcements" target="_blank" rel="noopener">Join Telegram</a>
+    <a class="social-btn" href="https://twitter.com/askchain_coin" target="_blank" rel="noopener">Follow Twitter</a>
   </section>
 
-  <!-- ========== TOKENOMICS ========== -->
+  <!-- TOKENOMICS -->
   <section class="section" id="tokenomics">
     <h2>Tokenomics</h2>
     <table>
@@ -107,27 +134,27 @@
     </table>
   </section>
 
-  <!-- ========== OFFICIAL LINKS ========== -->
+  <!-- LINKS -->
   <section class="section" id="links">
     <h2>Official Links</h2>
     <ul class="links">
-      <li>Contract : <a href="https://basescan.org/address/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank">0x6ea6…c4662</a></li>
-      <li>Liquidity Lock : <a href="LOCK_LINK" target="_blank">View on Locker</a></li>
-      <li>DexScreener : <a href="https://dexscreener.com/base/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank">Live chart &amp; volume</a></li>
-      <li>Whitepaper : <a href="https://ask-chain.github.io/AskToken_Whitepaper.pdf" target="_blank">Download PDF</a></li>
-      <li>Twitter : <a href="https://twitter.com/askchain_coin" target="_blank">@AskChain</a></li>
-      <li>Telegram : <a href="https://t.me/askchain_announcements" target="_blank">Community Channel</a></li>
+      <li>Contract : <a href="https://basescan.org/address/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank" rel="noopener">0x6ea6…c4662</a></li>
+      <li>Liquidity Lock : <a href="LOCK_LINK" target="_blank" rel="noopener">View on Locker</a></li>
+      <li>DexScreener : <a href="https://dexscreener.com/base/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank" rel="noopener">Live chart & volume</a></li>
+      <li>Whitepaper : <a href="https://ask-chain.github.io/AskToken_Whitepaper.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+      <li>Twitter : <a href="https://twitter.com/askchain_coin" target="_blank" rel="noopener">@AskChain</a></li>
+      <li>Telegram : <a href="https://t.me/askchain_announcements" target="_blank" rel="noopener">Community Channel</a></li>
     </ul>
   </section>
 
-  <!-- ========== ROADMAP ========== -->
+  <!-- ROADMAP -->
   <section class="section" id="roadmap">
     <h2>Roadmap</h2>
     <ul class="roadmap">
       <li><strong>Q3 2025</strong> — Public beta dApp (post, answer, bounty claim)</li>
       <li><strong>Q4 2025</strong> — DAO launch, Snapshot voting, first treasury grants</li>
       <li><strong>Q1 2026</strong> — Mobile-first PWA, multi-language support, reputation oracle v2</li>
-      <li><strong>Q2 2026 +</strong> — AskChain mobile apps, integration with L2s &amp; cross-chain rewards</li>
+      <li><strong>Q2 2026 +</strong> — AskChain mobile apps, cross-chain rewards, AI answer suggestions</li>
     </ul>
   </section>
 
@@ -135,5 +162,13 @@
     © 2025 AskChain — Built for the crypto community.
   </footer>
 
+  <!-- Script : loader -->
+  <script>
+    window.addEventListener('load', () => {
+      const bar = document.querySelector('.bar');
+      bar.style.transform = 'scaleX(1)';
+      setTimeout(()=>document.getElementById('loader').classList.add('fade'),600);
+    });
+  </script>
 </body>
 </html>
