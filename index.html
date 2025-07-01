@@ -1,0 +1,189 @@
+<!-- index.html – AskToken Official Landing Page (v1.0) -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AskToken — Official Token Page</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;700;800&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #0f172a;
+      --bg-card: #1e293b;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --accent: #4f46e5;
+    }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: "Inter", sans-serif;
+    }
+    html {
+      scroll-behavior: smooth;
+    }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.65;
+    }
+    a {
+      color: var(--accent);
+      text-decoration: none;
+    }
+    header {
+      text-align: center;
+      padding: 4rem 1rem 3rem;
+    }
+    header img {
+      width: 128px;
+      height: 128px;
+      margin-bottom: 1.2rem;
+      border-radius: 50%;
+    }
+    header h1 {
+      font-size: 2.75rem;
+      font-weight: 800;
+      margin-bottom: .6rem;
+    }
+    header p {
+      font-size: 1.15rem;
+      color: var(--muted);
+      max-width: 540px;
+      margin: 0 auto 1.8rem;
+    }
+    .cta-btn {
+      display: inline-block;
+      padding: .9rem 1.8rem;
+      background: var(--accent);
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      transition: transform .15s ease, opacity .15s ease;
+    }
+    .cta-btn:hover { opacity: .9; transform: translateY(-2px); }
+
+    .section {
+      padding: 3.5rem 1rem;
+      max-width: 960px;
+      margin: 0 auto;
+    }
+    .section h2 {
+      font-size: 2rem;
+      text-align: center;
+      margin-bottom: 2rem;
+      position: relative;
+    }
+    .section h2::after {
+      content: "";
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
+      bottom: -8px;
+      width: 60px;
+      height: 3px;
+      background: var(--accent);
+      border-radius: 6px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      background: var(--bg-card);
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,.25);
+    }
+    th, td {
+      padding: 1rem;
+      text-align: center;
+      border-bottom: 1px solid #334155;
+    }
+    th { background: #1e293b; font-weight: 600; }
+    tr:last-child td { border-bottom: none; }
+
+    ul.links {
+      list-style: none;
+      text-align: center;
+      font-size: 1.05rem;
+      line-height: 2.2;
+    }
+    .roadmap {
+      list-style: disc;
+      padding-left: 1.25rem;
+      max-width: 640px;
+      margin: 0 auto;
+      line-height: 1.9;
+    }
+    footer {
+      text-align: center;
+      padding: 2rem 1rem;
+      font-size: .9rem;
+      color: var(--muted);
+    }
+    @media (max-width: 640px){
+      header h1{font-size: 2.1rem}
+      header p{font-size: 1rem}
+    }
+  </style>
+</head>
+<body>
+  <!-- ========= HERO ========= -->
+  <header>
+    <img src="https://raw.githubusercontent.com/ask-chain/askchain-token/main/logo.png" alt="AskToken logo" />
+    <h1>AskToken (ASK)</h1>
+    <p>The community‑powered Q&A token rewarding verified crypto knowledge.</p>
+    <a class="cta-btn" href="https://app.uniswap.org/explore/pools/base/0xA48026ff82AC7C773952359A9f9dE04C7C5a6549" target="_blank" rel="noopener">Buy $ASK on Uniswap</a>
+  </header>
+
+  <!-- ========= TOKENOMICS ========= -->
+  <section class="section" id="tokenomics">
+    <h2>Tokenomics</h2>
+    <table>
+      <thead>
+        <tr><th>Allocation</th><th>Percentage</th><th>Amount (ASK)</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Rewards (Answer Mining)</td><td>40%</td><td>40,000,000</td></tr>
+        <tr><td>Liquidity Pool (locked)</td><td>25%</td><td>25,000,000</td></tr>
+        <tr><td>Development</td><td>20%</td><td>20,000,000</td></tr>
+        <tr><td>Market‑Making Wallet</td><td>10%</td><td>10,000,000</td></tr>
+        <tr><td>Treasury / DAO</td><td>5%</td><td>5,000,000</td></tr>
+        <tr><th>Total Supply</th><th>100%</th><th>100,000,000</th></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========= LINKS ========= -->
+  <section class="section" id="links">
+    <h2>Official Links</h2>
+    <ul class="links">
+      <li>Contract: <a href="https://basescan.org/address/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank" rel="noopener">0x6ea6...c4662</a></li>
+      <li>Liquidity Lock: <a href="LOCK_LINK" target="_blank" rel="noopener">View on Locker</a> <!-- REPLACE LOCK_LINK --></li>
+      <li>DexScreener: <a href="https://dexscreener.com/base/0x6ea642d53a7bd5d55d6dee5f321587156c7c4662" target="_blank" rel="noopener">Live chart & volume</a></li>
+      <li>Whitepaper: <a href="https://ask-chain.github.io/AskToken_Whitepaper.pdf" target="_blank" rel="noopener">Download PDF</a></li>
+      <li>Twitter: <a href="https://x.com/askchain_Coin" target="_blank" rel="noopener">@AskChain</a></li>
+      <li>Telegram: <a href="https://t.me/askchain_announcements" target="_blank" rel="noopener">Community Channel</a></li>
+    </ul>
+  </section>
+
+  <!-- ========= ROADMAP ========= -->
+  <section class="section" id="roadmap">
+    <h2>Roadmap</h2>
+    <ul class="roadmap">
+      <li><strong>Q3 2025</strong> — Public beta dApp (post, answer, bounty claim)</li>
+      <li><strong>Q4 2025</strong> — DAO launch, Snapshot voting, first treasury grants</li>
+      <li><strong>Q1 2026</strong> — Mobile‑first PWA, multi‑language support, reputation oracle v2</li>
+      <li><strong>Q2 2026</strong> — Cross‑chain deployment (zkSync / Arbitrum) + bridge wrapper</li>
+      <li><strong>Q3 2026</strong> — Integrated AI answer suggestion layer (opt‑in)</li>
+    </ul>
+  </section>
+
+  <footer>
+    © 2025 AskChain – Empowering the crypto community through knowledge.
+  </footer>
+</body>
+</html>
