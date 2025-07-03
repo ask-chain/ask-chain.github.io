@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AskChain • Crypto Q&A dApp</title>
+  <meta name="copyright" content="© 2025 AskChain™">
+  <!-- Tailwind CSS CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <style>body{font-family:'Poppins',sans-serif}</style>
+</head>
+<body class="bg-gradient-to-r from-[#0d1123] via-[#0f1630] to-[#0d1123] text-white min-h-screen flex flex-col">
+  <!-- HERO -->
+  <header class="flex-grow container mx-auto px-4 py-20 flex flex-col items-center justify-center text-center">
+    <h1 class="text-4xl md:text-5xl font-bold mb-4 flex items-center justify-center gap-2">
+      <span class="text-pink-400">🧠</span>
+      AskChain <span class="hidden md:inline">MVP</span> – Coming Soon
+    </h1>
+    <p class="text-lg md:text-xl max-w-xl mb-8">Earn <span class="font-semibold text-indigo-400">$ASK</span> by answering real crypto questions. The public beta dApp is under development and launching <span class="font-semibold">Q3 2025</span>.</p>
+    <a href="#join-beta" class="bg-indigo-500 hover:bg-indigo-400 transition rounded-xl px-6 py-3 font-semibold shadow-md">Join the Beta Testers</a>
+  </header>
+
+  <!-- FEATURES -->
+  <section class="container mx-auto px-4 py-16" id="features">
+    <h2 class="text-3xl font-bold text-center mb-12">How AskChain Works</h2>
+    <div class="grid gap-8 md:grid-cols-3">
+      <div class="bg-[#141b37] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">1️⃣ Ask</h3>
+        <p>Post your crypto question and attach an <span class="font-semibold text-indigo-400">$ASK</span> bounty.</p>
+      </div>
+      <div class="bg-[#141b37] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">2️⃣ Answer</h3>
+        <p>Experts compete to deliver the best explanation, code snippet, or trading insight.</p>
+      </div>
+      <div class="bg-[#141b37] rounded-2xl p-6 shadow-lg">
+        <h3 class="text-xl font-semibold mb-3">3️⃣ Claim&nbsp;Rewards</h3>
+        <p>The community votes, the top answer wins, and the bounty is paid out automatically on-chain.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ROADMAP -->
+  <section class="container mx-auto px-4 py-16 bg-[#0f1530]/60 backdrop-blur-md rounded-t-2xl">
+    <h2 class="text-3xl font-bold text-center mb-12">Roadmap</h2>
+    <div class="max-w-2xl mx-auto space-y-8">
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 flex items-center justify-center bg-indigo-500 rounded-full font-bold">Q3</div>
+        <div>
+          <h4 class="font-semibold">2025 — Public Beta dApp</h4>
+          <p>Post / Answer / Bounty claim live on Base network.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 flex items-center justify-center bg-indigo-500 rounded-full font-bold">Q4</div>
+        <div>
+          <h4 class="font-semibold">2025 — Reputation & Staking</h4>
+          <p>Reputation NFTs, $ASK staking for fee discounts.</p>
+        </div>
+      </div>
+      <div class="flex items-start gap-4">
+        <div class="w-10 h-10 flex items-center justify-center bg-indigo-500 rounded-full font-bold">2026</div>
+        <div>
+          <h4 class="font-semibold">H1 2026 — Mobile & Multi-chain</h4>
+          <p>iOS / Android apps & support for Ethereum mainnet, Polygon.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- JOIN BETA FORM -->
+  <section id="join-beta" class="container mx-auto px-4 py-20 text-center">
+    <h2 class="text-3xl font-bold mb-6">Join the Beta Testers</h2>
+    <p class="max-w-md mx-auto mb-8">Leave your email to get early access and earn exclusive <span class="font-semibold text-indigo-400">$ASK</span> rewards.</p>
+    <!-- Replace YOUR_SCRIPT_ID with the ID from your Google Apps Script deployment URL -->
+    <form id="beta-form" data-url="https://script.google.com/macros/s/AKfycbycFvr2b7fqihx5VxrJViCzxGsUZy5Hl9ZOv93x05Bpf5Kebzus4AHlKESpO87f3yu0/exec" class="max-w-md mx-auto flex flex-col gap-4">
+      <input type="email" name="email" required placeholder="you@example.com" class="w-full rounded-lg p-3 text-gray-900" />
+      <button type="submit" class="bg-indigo-500 hover:bg-indigo-400 transition rounded-xl px-6 py-3 font-semibold text-white shadow-md">Sign Up</button>
+      <div id="form-message" class="hidden text-sm mt-2"></div>
+    </form>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="bg-[#0b0f21] py-6 text-center text-sm text-gray-400">
+    © 2025 <span class="font-semibold">AskChain™</span>. All rights reserved.
+  </footer>
+
+  <!-- FORM HANDLER -->
+<script>
+const form=document.getElementById('beta-form');
+const msg=document.getElementById('form-message');
+form.addEventListener('submit',async e=>{
+  e.preventDefault();
+  msg.classList.add('hidden');
+  const email=form.email.value.trim();
+  if(!email){
+    msg.textContent='Please enter a valid email.';
+    msg.className='text-red-400 mt-2';
+    msg.classList.remove('hidden');
+    return;
+  }
+  const url=form.dataset.url;
+  const data=new URLSearchParams();
+  data.append('email',email);
+  try{
+    const res=await fetch(url,{method:'POST',body:data});
+    if(res.ok){
+      msg.textContent='🎉 Thank you for joining the AskChain beta!';
+      msg.className='text-green-400 mt-2';
+      form.reset();
+    }else{
+      msg.textContent='Oops, something went wrong. Please try again later.';
+      msg.className='text-red-400 mt-2';
+    }
+  }catch(err){
+    msg.textContent='Network error. Please try again.';
+    msg.className='text-red-400 mt-2';
+  }
+  msg.classList.remove('hidden');
+});
+</script>
+</body>
+</html>
